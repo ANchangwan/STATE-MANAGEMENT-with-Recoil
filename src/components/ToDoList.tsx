@@ -6,6 +6,7 @@ import ToDo from "./ToDo";
 // setValue 값이 유효하면 input에 입력된 값을 지움
 function ToDoList() {
   const toDos = useRecoilValue(toDoState);
+  console.log(toDos);
   return (
     <div>
       <h1>To Dos</h1>
