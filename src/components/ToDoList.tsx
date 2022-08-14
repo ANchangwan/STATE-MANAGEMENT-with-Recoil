@@ -1,22 +1,37 @@
 import React from "react";
 import CreateToDo from "./CreateTodo";
-import { toDoState } from "../atoms";
+import { toDoSelector, toDoState } from "../atoms";
 import { useRecoilValue } from "recoil";
 import ToDo from "./ToDo";
 // setValue 값이 유효하면 input에 입력된 값을 지움
 function ToDoList() {
-  const toDos = useRecoilValue(toDoState);
-  console.log(toDos);
+  const [toDo, doing, done] = useRecoilValue(toDoSelector);
   return (
     <div>
       <h1>To Dos</h1>
       <hr />
       <CreateToDo />
+      <h2>To Do</h2>
       <ul>
-        {toDos.map((toDo) => (
+        {toDo.map((toDo) => (
           <ToDo key={toDo.id} {...toDo} />
         ))}
       </ul>
+      <hr />
+      <h2>Doing</h2>
+      <ul>
+        {doing.map((toDo) => (
+          <ToDo key={toDo.id} {...toDo} />
+        ))}
+      </ul>
+      <hr />
+      <h2>Done</h2>
+      <ul>
+        {done.map((toDo) => (
+          <ToDo key={toDo.id} {...toDo} />
+        ))}
+      </ul>
+      <hr />
     </div>
   );
 }
