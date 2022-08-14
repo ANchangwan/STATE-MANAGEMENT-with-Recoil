@@ -25,12 +25,12 @@ function ToDo({ text, category, id }: IToDo) {
       <span>{text}</span>
       {category !== "DOING" && (
         <button name="DOING" onClick={onClick}>
-          To Do
+          Doing
         </button>
       )}
       {category !== "TO_DO" && (
         <button name="TO_DO" onClick={onClick}>
-          Doing
+          To Do
         </button>
       )}
       {category !== "DONE" && (
